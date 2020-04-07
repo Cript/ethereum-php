@@ -3,6 +3,7 @@
 namespace Ethereum\DataType;
 
 use Ethereum\DataType\EthQ;
+use Ethereum\EthereumStatic;
 
 /**
  * Byte data, length 20.
@@ -61,6 +62,13 @@ class EthD20 extends EthD
             }
         }
         return null;
+    }
+
+    /**
+     * @return string
+     */
+    public function encodedHexVal() {
+        return str_repeat('0', 24) . EthereumStatic::removeHexPrefix($this->value);
     }
 
   /**
